@@ -189,8 +189,8 @@ ul.items .p{font-family:"Playfair Display";font-weight:600;font-size:1.15rem;col
 footer{background:#120a05;color:#a88f72;text-align:center;font-size:.8rem;padding:22px 16px;letter-spacing:.05em}
 
 /* ---------- carrito ---------- */
-.drawer{position:fixed;top:0;right:0;bottom:0;z-index:80;width:min(400px,100vw);background:linear-gradient(180deg,#2b190d,#120a05);color:var(--cream);transform:translateX(105%);transition:transform .55s cubic-bezier(.7,0,.2,1);display:flex;flex-direction:column;box-shadow:-30px 0 60px rgba(0,0,0,.4)}
-.drawer.open{transform:none}
+.drawer{position:fixed;top:0;right:0;bottom:0;z-index:80;width:min(400px,100vw);background:linear-gradient(180deg,#2b190d,#120a05);color:var(--cream);transform:translateX(105%);transition:transform .55s cubic-bezier(.7,0,.2,1),box-shadow .55s;display:flex;flex-direction:column}
+.drawer.open{transform:none;box-shadow:-30px 0 60px rgba(0,0,0,.4)}
 .scrim{position:fixed;inset:0;z-index:70;background:rgba(18,10,5,.55);backdrop-filter:blur(3px);opacity:0;visibility:hidden;transition:.4s}
 .scrim.open{opacity:1;visibility:visible}
 .drawer header{display:flex;justify-content:space-between;align-items:center;padding:22px 24px;border-bottom:1px solid rgba(232,201,135,.2)}
@@ -223,8 +223,10 @@ footer{background:#120a05;color:#a88f72;text-align:center;font-size:.8rem;paddin
   .combos{grid-template-columns:1fr}
 }
 @media (max-width:560px){
-  .cups{grid-auto-flow:row;grid-template-columns:repeat(3,1fr)}
-  .filters{top:58px;border-radius:20px;max-width:100%}
+  .cups{gap:4px}
+  .cup span{font-size:.55rem;padding:4px 6px;letter-spacing:.03em}
+  .filters{top:58px;max-width:100%;flex-wrap:nowrap;justify-content:flex-start;overflow-x:auto;scrollbar-width:none}
+  .filters button{flex:none}
   .filters button{padding:7px 12px;font-size:.78rem}
   .price-tag{width:70px;height:70px}.price-tag strong{font-size:1.4rem}
   .tea{width:150px}
