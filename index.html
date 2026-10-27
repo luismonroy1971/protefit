@@ -207,8 +207,35 @@ footer{background:#120a05;color:#a88f72;text-align:center;font-size:.8rem;paddin
 .drawer .total{padding:20px 24px 26px;border-top:1px solid rgba(232,201,135,.2)}
 .drawer .total div{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:14px}
 .drawer .total strong{font-family:"Playfair Display";font-size:2rem;color:var(--gold-2)}
-.drawer .total button{width:100%;padding:14px;border:0;border-radius:99px;background:var(--gold-grad);background-size:200% auto;color:var(--espresso);font:600 .95rem Poppins;cursor:pointer;transition:.4s}
-.drawer .total button:hover{background-position:right center}
+.drawer .total button{width:100%;padding:14px;border:0;border-radius:99px;font:600 .95rem Poppins;cursor:pointer;transition:.4s;display:flex;align-items:center;justify-content:center;gap:10px}
+.drawer .wa-send{background:linear-gradient(135deg,#2fd366,#128c4b);color:#fff;box-shadow:0 10px 24px rgba(18,140,75,.35);margin-bottom:10px}
+.drawer .wa-send:hover{transform:translateY(-2px);box-shadow:0 14px 30px rgba(18,140,75,.5)}
+.drawer .wa-send:disabled{opacity:.4;cursor:not-allowed;transform:none;box-shadow:none}
+.drawer .wa-send svg{width:22px;height:22px;fill:currentColor}
+.drawer .clear{background:transparent!important;color:#d9c4a3;border:1px solid rgba(232,201,135,.35)!important}
+.drawer .clear:hover{color:var(--gold-2);border-color:var(--gold)!important}
+
+/* ---------- Yape / Plin ---------- */
+.pay{display:flex;align-items:center;gap:12px;padding:12px 14px;margin-bottom:14px;border-radius:14px;background:rgba(232,201,135,.08);border:1px dashed rgba(232,201,135,.45)}
+.pay .chips{display:flex;flex-direction:column;gap:4px}
+.chip{font-size:.66rem;font-weight:700;letter-spacing:.08em;padding:3px 9px;border-radius:99px;color:#fff;text-align:center}
+.chip.yape{background:#742284}.chip.plin{background:#00b2a9}
+.pay .num{flex:1;line-height:1.2}
+.pay .num small{display:block;font-size:.72rem;color:#a88f72}
+.pay .num b{font-family:"Playfair Display";font-size:1.15rem;color:var(--gold-2);letter-spacing:.02em;white-space:nowrap}
+.drawer .total .copy{width:auto;padding:8px 14px;font-size:.78rem;background:transparent;color:var(--gold-2);border:1px solid var(--gold)}
+.drawer .total .copy:hover{background:var(--gold);color:var(--espresso)}
+.closing .pay-line{display:inline-flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:34px;padding:12px 22px;border-radius:99px;border:1px solid rgba(232,201,135,.4);background:rgba(232,201,135,.07);color:#f4e6cc;font-size:.95rem}
+.closing .pay-line b{font-family:"Playfair Display";color:var(--gold-2);font-size:1.15rem;letter-spacing:.04em}
+
+/* ---------- WhatsApp flotante ---------- */
+.wa-float{position:fixed;right:clamp(16px,3vw,28px);bottom:clamp(16px,3vw,28px);z-index:60;width:62px;height:62px;border-radius:50%;display:grid;place-items:center;background:linear-gradient(135deg,#2fd366,#128c4b);color:#fff;box-shadow:0 12px 30px rgba(18,140,75,.45),0 0 0 3px rgba(232,201,135,.7);transition:transform .35s cubic-bezier(.2,.9,.3,1.3)}
+.wa-float svg{width:32px;height:32px;fill:currentColor}
+.wa-float::before{content:"";position:absolute;inset:0;border-radius:50%;background:#25d366;z-index:-1;animation:waPing 2.2s cubic-bezier(0,0,.2,1) infinite}
+@keyframes waPing{0%{transform:scale(1);opacity:.6}80%,100%{transform:scale(1.7);opacity:0}}
+.wa-float:hover{transform:scale(1.1) rotate(-8deg)}
+.wa-float .tip{position:absolute;right:76px;white-space:nowrap;background:var(--espresso);color:var(--gold-2);border:1px solid var(--gold);padding:8px 14px;border-radius:99px;font-size:.82rem;opacity:0;transform:translateX(10px);transition:.3s;pointer-events:none}
+.wa-float:hover .tip{opacity:1;transform:none}
 .toast{position:fixed;left:50%;bottom:24px;z-index:90;transform:translate(-50%,140%);background:var(--espresso);color:var(--gold-2);border:1px solid var(--gold);padding:12px 22px;border-radius:99px;font-size:.88rem;transition:transform .45s cubic-bezier(.2,.9,.3,1.3);box-shadow:0 14px 30px rgba(0,0,0,.35);white-space:nowrap}
 .toast.show{transform:translate(-50%,0)}
 
@@ -242,6 +269,7 @@ footer{background:#120a05;color:#a88f72;text-align:center;font-size:.8rem;paddin
     <linearGradient id="leafGrad" x1="0" y1="0" x2="1" y2="1">
       <stop offset="0" stop-color="#f3dca6"/><stop offset=".45" stop-color="#c9a050"/><stop offset="1" stop-color="#6b4518"/>
     </linearGradient>
+    <symbol id="waIcon" viewBox="0 0 32 32"><path d="M16 3C8.8 3 3 8.7 3 15.8c0 2.5.7 4.9 2 7L3 29l6.4-2c2 1.1 4.3 1.7 6.6 1.7 7.2 0 13-5.7 13-12.8S23.2 3 16 3Zm0 23.4c-2.1 0-4.1-.6-5.9-1.7l-.4-.2-3.8 1.2 1.2-3.7-.3-.4a10.4 10.4 0 0 1-1.6-5.6C5.2 9.9 10 5.2 16 5.2s10.8 4.7 10.8 10.6S22 26.4 16 26.4Zm5.9-7.9c-.3-.2-1.9-1-2.2-1-.3-.1-.5-.2-.7.2l-1 1.2c-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.6-1.6-1-.9-1.6-1.9-1.8-2.2-.2-.3 0-.5.1-.7l.5-.6.3-.5v-.6l-1-2.4c-.3-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.1 1.1-1.1 2.7s1.2 3.2 1.3 3.4c.2.2 2.3 3.5 5.6 4.9 2.8 1.1 3.3.9 3.9.8.6-.1 1.9-.8 2.2-1.5.3-.7.3-1.4.2-1.5-.1-.2-.3-.3-.6-.4Z"/></symbol>
     <symbol id="branch" viewBox="0 0 200 200">
       <path d="M20 190 C70 140 110 90 175 15" stroke="#b8893a" stroke-width="2.5" fill="none"/>
       <path class="leaf" d="M60 150 C25 140 10 110 15 85 C45 95 60 120 60 150Z"/>
@@ -446,6 +474,7 @@ footer{background:#120a05;color:#a88f72;text-align:center;font-size:.8rem;paddin
   <img class="mini reveal" src="img/logo.png" alt="">
   <h2 class="gold-text reveal">Disfruta, nutre tu cuerpo<br>y alcanza tus metas</h2>
   <div class="line reveal">♡</div>
+  <div class="pay-line reveal"><span class="chip yape">YAPE</span><span class="chip plin">PLIN</span>Pedidos y pagos al <b>918 097 612</b></div>
 </section>
 <footer>© Protefit GM Bar · Nutrición que te impulsa a ser tu mejor versión</footer>
 
@@ -453,8 +482,19 @@ footer{background:#120a05;color:#a88f72;text-align:center;font-size:.8rem;paddin
 <aside class="drawer" id="drawer" aria-label="Mi pedido">
   <header><h3>Mi pedido</h3><button class="x" id="closeCart" aria-label="Cerrar">×</button></header>
   <div class="list" id="cartList"></div>
-  <div class="total"><div><span>Total</span><strong id="cartTotal">S/ 0</strong></div><button id="clearCart">Vaciar pedido</button></div>
+  <div class="total"><div><span>Total</span><strong id="cartTotal">S/ 0</strong></div>
+    <div class="pay">
+      <div class="chips"><span class="chip yape">YAPE</span><span class="chip plin">PLIN</span></div>
+      <div class="num"><small>Paga al número</small><b>918 097 612</b></div>
+      <button class="copy" id="copyNum">Copiar</button>
+    </div>
+    <button class="wa-send" id="sendWa"><svg viewBox="0 0 32 32"><use href="#waIcon"/></svg>Enviar pedido por WhatsApp</button>
+    <button class="clear" id="clearCart">Vaciar pedido</button></div>
 </aside>
+<a class="wa-float" id="waFloat" href="#" target="_blank" rel="noopener" aria-label="Escríbenos por WhatsApp">
+  <span class="tip">¿Pedimos? Escríbenos</span>
+  <svg viewBox="0 0 32 32"><use href="#waIcon"/></svg>
+</a>
 <div class="toast" id="toast"></div>
 
 <script>
@@ -528,7 +568,24 @@ function render(){
   });
   if(!cart.size)list.innerHTML='<div class="empty"><b>Aún vacío</b>Agrega tus favoritos desde la carta</div>';
   $('cartCount').textContent=count;$('cartTotal').textContent=fmt(total);
+  $('sendWa').disabled=!cart.size;
 }
+
+// WhatsApp
+const WA='51918097612';
+const waLink=msg=>`https://wa.me/${WA}?text=${encodeURIComponent(msg)}`;
+$('waFloat').href=waLink('¡Hola Protefit GM! 👋 Quisiera hacer un pedido.');
+$('sendWa').onclick=()=>{
+  if(!cart.size)return;
+  let total=0;const lines=[];
+  cart.forEach((q,name)=>{const s=q*cart.prices[name];total+=s;lines.push(`• ${q} x ${name} — ${fmt(s)}`)});
+  const msg=`¡Hola Protefit GM! 👋 Quiero hacer este pedido:\n\n${lines.join('\n')}\n\n*Total: ${fmt(total)}*\n\nPago por Yape/Plin al 918 097 612.\n¡Gracias! 💪`;
+  open(waLink(msg),'_blank','noopener');
+};
+$('copyNum').onclick=async()=>{
+  try{await navigator.clipboard.writeText('918097612')}catch(e){}
+  const t=$('toast');t.textContent='✦ Número copiado: 918 097 612';t.classList.add('show');clearTimeout(tt);tt=setTimeout(()=>t.classList.remove('show'),1800);
+};
 cart.prices={};
 let tt;
 function add(name,price,btn){
